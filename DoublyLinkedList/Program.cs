@@ -60,7 +60,23 @@ namespace DoublyLinkedList
                     return;
                 }
             }
+            /*On the execution of the above for loop, prev and
+             * Current will point to those nodes between which the new node is to be inserted. */
+            newnode.next = current;
+            newnode.prev = newnode;
+
+            /*If the node is to be inserted at the end of the list. */
+            if (current == null)
+            {
+                newnode.next = null;
+                previous.next = newnode;
+                return;
+            }
+            current.prev = newnode;
+            previous.next = newnode;
         }
+
+        /**/
     }
     internal class Program
     {
