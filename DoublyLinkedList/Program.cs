@@ -85,6 +85,37 @@ namespace DoublyLinkedList
              * is found then the function returns true, otherwise false.*/
             return (current != null);
         }
+
+        public bool delNode(int rollNO)/*Delete the specified node*/
+        {
+            Node previous, current;
+            previous = current = null;
+            if (Search(rollNO, ref previous, ref current) == false)
+                return false;
+            if (current == START)/*If the first node is to be deleted*/
+            {
+                START = START.next;
+                if (START != null)
+                    START.prev = null;
+                return true;
+            }
+            if (current.next == null)/*If the last node is to be deleted*/
+            {
+                START = START.next;
+                if (START != null)
+                    START.prev = null;
+                return true; 
+            }
+            if (current.next == null)/*If the last node is to be deleted*/
+            {
+                previous.next = null;
+                return true;
+            }
+            /*If the node to be deleted is in between the list then the following lines of code is executed. */
+            previous.next = current.next;
+            current.next.prev = previous;
+            return true;
+        }
     }
     internal class Program
     {
