@@ -79,7 +79,7 @@ namespace DoublyLinkedList
         /*Checks whether the specified node is present*/
         public bool Search(int rollNo, ref Node previous, ref Node current)
         {
-            for (previous=current=START; current != null && rollNo != current.rollNumber; previous = current, current=current.next)
+            for (previous = current = START; current != null && rollNo != current.rollNumber; previous = current, current = current.next)
             { }
             /*The above for loop traverses the list. if the specified node
              * is found then the function returns true, otherwise false.*/
@@ -104,7 +104,7 @@ namespace DoublyLinkedList
                 START = START.next;
                 if (START != null)
                     START.prev = null;
-                return true; 
+                return true;
             }
             if (current.next == null)/*If the last node is to be deleted*/
             {
@@ -115,6 +115,46 @@ namespace DoublyLinkedList
             previous.next = current.next;
             current.next.prev = previous;
             return true;
+        }
+
+        public void traverse()/*Traverse the list*/
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList is Empty");
+            else
+            {
+                Console.WriteLine("\nRecords in the ascending order of " + "roll numbers are:\n");
+                Node currentNode;
+                for (currentNode = START; currentNode != null;
+                    currentNode = currentNode.next)
+                    Console.Write(currentNode.rollNumber + "  " + currentNode.name + "\n");
+            }
+        }
+
+        /*Traverses the list in the reverse direction*/
+        public void revtraverse()
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList is Empty");
+            else
+            {
+                Console.WriteLine("\nRecords in the descending order of " + "roll numbers are:\n");
+                Node currentNode;
+                for (currentNode = START; currentNode.next != null;
+                    currentNode=currentNode.next) { }
+                while (currentNode != null)
+                {
+                    Console.Write(currentNode.rollNumber + "  " + currentNode.name + "\n");
+                    currentNode = currentNode.prev;
+                }
+            }
+        }
+        public bool listEmpty()
+        {
+            if (START == null)
+                return true;
+            else
+                return false;
         }
     }
     internal class Program
