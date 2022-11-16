@@ -29,9 +29,9 @@ namespace DoublyLinkedList
         {
             int rollNo;
             string nm;
-            Console.Write("\nEnter the roll number of the student");
+            Console.Write("Enter the roll number of the student : ");
             rollNo = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\nEnter the name of the student");
+            Console.Write("\nEnter the name of the student : ");
             nm = Console.ReadLine();
             Node newnode = new Node();
             newnode.rollNumber = rollNo;
@@ -163,14 +163,14 @@ namespace DoublyLinkedList
             {
                 try
                 {
-                    Console.WriteLine("\n Menu" +
+                    Console.Write("\n Menu" +
                         "\n 1. Add a record to the list" +
                         "\n 2. Delete a record from the list" +
                         "\n 3. View all records  in the ascending order of roll numbers" +
                         "\n 4. View all records in the descending order of roll numbers" +
                         "\n 5. Search for a record in the list" +
                         "\n 6. Exit \n" +
-                        "\n Enter your choice (1-6): ");
+                        "\nEnter your choice (1-6): ");
                     char ch = Convert.ToChar(Console.ReadLine());
                     switch (ch)
                     {
